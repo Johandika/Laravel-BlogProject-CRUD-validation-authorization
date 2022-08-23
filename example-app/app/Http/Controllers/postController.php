@@ -25,7 +25,7 @@ class postController extends Controller
         ]);
     }
 
-    public function blog()
+    public function index()
     {
         return view("posts", [
             "titles" => "Posts",
@@ -33,11 +33,11 @@ class postController extends Controller
         ]);
     }
 
-    public function show($slug)
+    public function show($id)
     {
         return view("post", [
             "titles" => "Single Post",
-            "seluruhPostingan" => Post::find($slug),
+            "seluruhPostingan" => Post::find($id),
         ]);
     }
 }
