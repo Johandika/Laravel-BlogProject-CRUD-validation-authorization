@@ -1,34 +1,14 @@
 <?php
 
+use App\Http\Controllers\postController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/", function () {
-    return view("home", [
-        "titles" => "Home",
-    ]);
-});
+Route::get("/", [postController::class, "home"]);
 
-Route::get("/about", function () {
-    return view("about", [
-        "titles" => "About",
-        "name" => "Johandika Syahputra Lubis",
-        "email" => "johanelyosse@gmail.com",
-        "image" => "Johandika.jpg",
-    ]);
-});
+Route::get("/about", [postController::class, "about"]);
 
-Route::get("/blog", function () {
-    return view("posts", [
-        "titles" => "Posts",
-        "seluruhPostingan" => Post::all(),
-    ]);
-});
+Route::get("/blog", [postController::class, "index"]);
 
 //halaman single post
-Route::get("posts/{slug}", function ($slug) {
-    return view("post", [
-        "titles" => "Single Post",
-        "seluruhPostingan" => Post::find($slug),
-    ]);
-});
+Route::get("posts/{slug}", [postController::class, "show"]);
