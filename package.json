@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ryangjchandler/prettier-plugin-blade": "github:ryangjchandler/prettier-plugin-blade"
+  }
+}
