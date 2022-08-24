@@ -8,11 +8,7 @@ Route::get("/", [postController::class, "home"]);
 
 Route::get("/about", [postController::class, "about"]);
 
-Route::get("/blog", [postController::class, "posts"]);
+Route::get("/blog", [postController::class, "index"]);
 
 //halaman single post
-Route::get("/posts/{post:slug}", [postController::class, "post"]);
-
-Route::get("/categories", [postController::class, "categories"]);
-
-Route::get("/categories/{category:slug}", [postController::class, "category"]);
+Route::get("posts/{slug}", [postController::class, "show"]);

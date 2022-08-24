@@ -566,34 +566,7 @@
             </div>
         </div>
     </div>
-
+    <h1>test</h1>
 </body>
-
-Post::create([
-"title"=> "Judul Ketiga",
-"category_id" => 3,
-"slug"=> "judul-ketiga",
-"excerpt"=> "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptatibus autem esse qui reiciendis
-nam!",
-"body"=> "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quam obcaecati aliquam nisi
-    incidunt sed earum, quo, amet quaerat ipsa, cumque aperiam molestias sit explicabo deserunt? Officia autem eos
-    possimus dolore, earum doloribus, eaque unde ipsa quas libero molestias facilis iusto adipisci minus atque neque
-    porro excepturi, repudiandae esse.</p>
-<p> Soluta sequi ipsum amet deleniti impedit ab ad dolorum dolores tempora, repellendus eligendi nemo explicabo sed nisi
-    iure maiores consequatur culpa unde voluptatum? Voluptates, corrupti? Impedit optio adipisci qui harum consequatur
-    repellat eveniet. Hic ducimus facere adipisci. Exercitationem natus r epellat odio sed numquam. Odit, molestias? Id
-    quasi repellendus modi tempore perspiciatis.</p>"])
-
-Category::create([
-"name"=> "Programming",
-"slug"=> "programming"])
-
-Category::create([
-"name"=> "Web Design",
-"slug"=> "web-design"])
-
-Category::create([
-"name"=> "Personal",
-"slug"=> "personal"])
 
 </html>
