@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Post;
 
 class postController extends Controller
 {
@@ -25,7 +26,7 @@ class postController extends Controller
         ]);
     }
 
-    public function index()
+    public function posts()
     {
         return view("posts", [
             "titles" => "Posts",
@@ -33,11 +34,28 @@ class postController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function post(Post $post)
     {
         return view("post", [
             "titles" => "Single Post",
-            "seluruhPostingan" => Post::find($id),
+            "seluruhPostingan" => $post,
+        ]);
+    }
+
+    public function categories()
+    {
+        return view("categories", [
+            "titles" => "Posts Categories",
+            "categories" => Category::all(),
+        ]);
+    }
+
+    public function category(Category $category)
+    {
+        return view("category", [
+            "titles" => $category->name,
+            "posts" => $category->posts,
+            "category" => $category->name,
         ]);
     }
 }
