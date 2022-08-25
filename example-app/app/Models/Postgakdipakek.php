@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Post
+class Postingan
 {
     private static $blog_posts = [
         [

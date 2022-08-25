@@ -1,14 +1,18 @@
 <?php
 
-use App\Http\Controllers\postController;
 use App\Models\Post;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\postController;
 
 Route::get("/", [postController::class, "home"]);
 
 Route::get("/about", [postController::class, "about"]);
 
-Route::get("/blog", [postController::class, "index"]);
+Route::get("/blog", [postController::class, "posts"]);
 
-//halaman single post
-Route::get("posts/{slug}", [postController::class, "show"]);
+Route::get("/posts/{slug}", [postController::class, "show"]);
+
+Route::get("/categories", [postController::class, "categories"]);
+
+Route::get("/categories/{category:slug}", [postController::class, "category"]);

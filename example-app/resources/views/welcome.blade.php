@@ -569,4 +569,68 @@
     <h1>test</h1>
 </body>
 
+
+Post::create([
+"title"=>"Judul Ketiga",
+"category_id"=>3,
+"slug"=>"judul-ketiga",
+"excerpt"=>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ea nostrum mollitia autem molestiae repellat
+distinctio dolorem possimus tenetur expedita!",
+"body"=>"<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quidem impedit eaque modi sapiente,
+    consectetur ipsum magnam laborum unde deleniti ut error. Dolore saepe quia non eius? Laboriosam, facere maxime.</p>
+<p>Tempore, ab voluptate error voluptates reiciendis sit eligendi distinctio et nisi aut debitis impedit quod
+    reprehenderit doloremque fugiat. Cum in excepturi, mollitia ipsum magni cupiditate, velit neque officiis recusandae
+    dolorem autem voluptas sint! Eveniet autem molestias fugit consequatur odit nemo laboriosam sed veritatis
+    aspernatur. Laboriosam numquam, velit aliquid facilis ex sequi reiciendis eius recusandae quaerat fuga commodi omnis
+    ad odit. Adipisci blanditiis hic corrupti laboriosam itaque nemo quis doloribus asperiores?</p>"
+])
+
+Post::create([
+"title"=>"Judul Kedua",
+"category_id"=>2
+"slug"=>"judul-kedua",
+"excerpt"=>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ea nostrum mollitia autem molestiae repellat
+distinctio dolorem possimus tenetur expedita!",
+"body"=>"<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quidem impedit eaque modi sapiente,
+    consectetur ipsum magnam laborum unde deleniti ut error. Dolore saepe quia non eius? Laboriosam, facere maxime.</p>
+<p>Tempore, ab voluptate error voluptates reiciendis sit eligendi distinctio et nisi aut debitis impedit quod
+    reprehenderit doloremque fugiat. Cum in excepturi, mollitia ipsum magni cupiditate, velit neque officiis recusandae
+    dolorem autem voluptas sint! Eveniet autem molestias fugit consequatur odit nemo laboriosam sed veritatis
+    aspernatur. Laboriosam numquam, velit aliquid facilis ex sequi reiciendis eius recusandae quaerat fuga commodi omnis
+    ad odit. Adipisci blanditiis hic corrupti laboriosam itaque nemo quis doloribus asperiores?"</p>
+
+])
+
+Post::create([
+"title"=>"Judul Ketiga",
+"category_id"=>3
+"slug"=>"judul-ketiga",
+"excerpt"=>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ea nostrum mollitia autem molestiae repellat
+distinctio dolorem possimus tenetur expedita!",
+"body"=>"<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quidem impedit eaque modi sapiente,
+    consectetur ipsum magnam laborum unde deleniti ut error. Dolore saepe quia non eius? Laboriosam, facere maxime.</p>
+<p>Tempore, ab voluptate error voluptates reiciendis sit eligendi distinctio et nisi aut debitis impedit quod
+    reprehenderit doloremque fugiat. Cum in excepturi, mollitia ipsum magni cupiditate, velit neque officiis recusandae
+    dolorem autem voluptas sint! Eveniet autem molestias fugit consequatur odit nemo laboriosam sed veritatis
+    aspernatur. Laboriosam numquam, velit aliquid facilis ex sequi reiciendis eius recusandae quaerat fuga commodi omnis
+    ad odit. Adipisci blanditiis hic corrupti laboriosam itaque nemo quis doloribus asperiores?"</p>
+
+])
+
+
+
+Category::create([
+"name"=>"Programming",
+"slug"=>"programming"
+])
+
+Category::create([
+"name"=>"Web Design",
+"slug"=>"web-design"
+])
+Category::create([
+"name"=>"Personal",
+"slug"=>"personal"
+])
+
 </html>
