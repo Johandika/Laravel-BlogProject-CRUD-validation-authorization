@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class postController extends Controller
 {
@@ -31,9 +32,11 @@ class postController extends Controller
         return view("posts", [
             "titles" => "Posts",
             "seluruhPostingan" => Post::all(),
+            // "seluruhPostingan" => Post::with("category", "user")->all(),
         ]);
     }
 
+    // Slug yang udah bisa
     public function show($slug)
     {
         return view("post", [
@@ -42,15 +45,24 @@ class postController extends Controller
         ]);
     }
 
+    // // Slug id yang sebelumnya
+    // public function show($slug)
+    // {
+    //     return view("post", [
+    //         "titles" => "Single Post",
+    //         "seluruhPostingan" => Post::find($slug),
+    //     ]);
+    // }
+
     // public function show(Post $post)
     // {
     //     return view("post", [
     //         "titles" => "Single Post",
-    //         "slug" => $post->slug,
+    //         "post" => $post,
     //     ]);
     // }
 
-    public function categories(Category $category)
+    public function categories()
     {
         return view("categories", [
             "titles" => "Post Categories",
