@@ -18,25 +18,14 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, "user_id");
     }
 
-    // postingan tunggal edit
     public function find($slug)
     {
         $posts = Post::all();
         return $posts->firstWhere("slug", $slug);
     }
-    // postingan tunggal
-    // public static function all()
-    // {
-    //     return collect(self::blog_posts);
-    // }
-    // public function find($slug)
-    // {
-    //     $posts=static::all();
-    //     return $posts->firstWhere("slug",$slug);
-    // }
 }

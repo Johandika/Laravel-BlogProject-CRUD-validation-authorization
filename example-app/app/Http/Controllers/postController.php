@@ -30,52 +30,46 @@ class postController extends Controller
     public function posts()
     {
         return view("posts", [
-            "titles" => "Posts",
-            "seluruhPostingan" => Post::all(),
+            "titles" => "All Posts",
+            "seluruhPostingan" => Post::with(["author", "category"])
+                ->latest()
+                ->get(),
             // "seluruhPostingan" => Post::with("category", "user")->all(),
         ]);
     }
 
-    // Slug yang udah bisa
+    public function author(User $author)
+    {
+        return view("posts", [
+            "titles" => "Post by Author : $author->name",
+            "seluruhPostingan" => $author->seluruhPostingan->load(
+                "category",
+                "author"
+            ),
+        ]);
+    }
+
     public function show($slug)
     {
         return view("post", [
-            "titles" => "Single Post",
+            "titles" => "Post by Author : $",
             "seluruhPostingan" => Post::find($slug),
         ]);
     }
 
-    // // Slug id yang sebelumnya
-    // public function show($slug)
-    // {
-    //     return view("post", [
-    //         "titles" => "Single Post",
-    //         "seluruhPostingan" => Post::find($slug),
-    //     ]);
-    // }
-
-    // public function show(Post $post)
-    // {
-    //     return view("post", [
-    //         "titles" => "Single Post",
-    //         "post" => $post,
-    //     ]);
-    // }
-
     public function categories()
     {
         return view("categories", [
-            "titles" => "Post Categories",
+            "titles" => "Post by Categories",
             "categories" => Category::all(),
         ]);
     }
 
     public function category(Category $category)
     {
-        return view("category", [
-            "titles" => $category->name,
-            "seluruhPostingan" => $category->posts,
-            "category" => $category->name,
+        return view("posts", [
+            "titles" => "Post by Category : $category->name",
+            "seluruhPostingan" => $category->posts->load("author", "category"),
         ]);
     }
 }

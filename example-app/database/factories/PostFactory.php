@@ -19,7 +19,7 @@ class PostFactory extends Factory
             "category_id" => mt_rand(1, 2),
             "user_id" => mt_rand(1, 3),
             "excerpt" => $this->faker->paragraph(),
-            "body" => $this->faker->paragraph(mt_rand(5, 10)),
+            "body" => $this->faker->paragraph(mt_rand(35, 70)),
         ];
     }
 }
