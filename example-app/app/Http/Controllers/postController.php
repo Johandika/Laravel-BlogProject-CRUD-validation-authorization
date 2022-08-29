@@ -14,6 +14,7 @@ class postController extends Controller
     {
         return view("home", [
             "titles" => "Home",
+            "active" => "home",
         ]);
     }
 
@@ -21,6 +22,7 @@ class postController extends Controller
     {
         return view("about", [
             "titles" => "About",
+            "active" => "about",
             "name" => "Johandika Syahputra Lubis",
             "email" => "johanelyosse@gmail.com",
             "image" => "Johandika.jpg",
@@ -31,10 +33,8 @@ class postController extends Controller
     {
         return view("posts", [
             "titles" => "All Posts",
-            "seluruhPostingan" => Post::with(["author", "category"])
-                ->latest()
-                ->get(),
-            // "seluruhPostingan" => Post::with("category", "user")->all(),
+            "active" => "posts",
+            "seluruhPostingan" => Post::latest()->get(),
         ]);
     }
 
@@ -53,6 +53,7 @@ class postController extends Controller
     {
         return view("post", [
             "titles" => "Post by Author : $",
+            "active" => "posts",
             "seluruhPostingan" => Post::find($slug),
         ]);
     }
@@ -61,6 +62,7 @@ class postController extends Controller
     {
         return view("categories", [
             "titles" => "Post by Categories",
+            "active" => "categories",
             "categories" => Category::all(),
         ]);
     }
@@ -69,6 +71,7 @@ class postController extends Controller
     {
         return view("posts", [
             "titles" => "Post by Category : $category->name",
+            "active" => "posts",
             "seluruhPostingan" => $category->posts->load("author", "category"),
         ]);
     }
