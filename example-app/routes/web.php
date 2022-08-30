@@ -14,6 +14,6 @@ Route::get("/posts/{slug}", [postController::class, "show"]);
 
 Route::get("/categories", [postController::class, "categories"]);
 
-Route::get("/categories/{category:slug}", [postController::class, "category"]);
+// Route::get("/categories/{category:slug}", [postController::class, "category"]);
 
-Route::get("/authors/{author:username}", [postController::class, "author"]);
+// Route::get("/authors/{author:username}", [postController::class, "author"]);

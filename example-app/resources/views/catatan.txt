@@ -1,0 +1,20 @@
+*UNTUK MELIHAT REQUEST SEARCH INPUT*
+dd(request("name_input"));
+
+*UNTUK QUERY FILTER SESUAI INPUT DI SEARCH INPUT*
+public function posts()
+    {
+        $posts = Post::latest();
+
+        if (request("search")) {
+            $posts
+                ->where("title", "like", "%" . request("search") . "%")
+                ->orWhere("body", "like", "%" . request("search") . "%");
+        }
+
+        return view("posts", [
+            "titles" => "All Posts",
+            "active" => "posts",
+            "seluruhPostingan" => $posts->get(),
+        ]);
+    }

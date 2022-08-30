@@ -14,7 +14,7 @@ class postController extends Controller
     {
         return view("home", [
             "titles" => "Home",
-            "active" => "home",
+            // "active" => "home",
         ]);
     }
 
@@ -22,7 +22,7 @@ class postController extends Controller
     {
         return view("about", [
             "titles" => "About",
-            "active" => "about",
+            // "active" => "about",
             "name" => "Johandika Syahputra Lubis",
             "email" => "johanelyosse@gmail.com",
             "image" => "Johandika.jpg",
@@ -31,10 +31,21 @@ class postController extends Controller
 
     public function posts()
     {
+      $title="";
+      if(request("category")){
+        $category = Category::firstWhere("slug", request("category"));
+        $title=" in ".$category->name;
+      }
+
+      if(request("author")){
+        $author = User::firstWhere("username", request("author"));
+        $title=" by ".$author->name;
+      }
+
         return view("posts", [
-            "titles" => "All Posts",
-            "active" => "posts",
-            "seluruhPostingan" => Post::latest()->get(),
+            "titles" => "All Posts" . $title,
+            // "active" => "posts",
+            "seluruhPostingan" => Post::latest()->filter(request(["search","category","author"]))->paginate(7)->withQueryString(),
         ]);
     }
 
@@ -42,6 +53,7 @@ class postController extends Controller
     {
         return view("posts", [
             "titles" => "Post by Author : $author->name",
+            // "active" => "posts",
             "seluruhPostingan" => $author->seluruhPostingan->load(
                 "category",
                 "author"
@@ -53,7 +65,7 @@ class postController extends Controller
     {
         return view("post", [
             "titles" => "Post by Author : $",
-            "active" => "posts",
+            // "active" => "posts",
             "seluruhPostingan" => Post::find($slug),
         ]);
     }
@@ -62,7 +74,7 @@ class postController extends Controller
     {
         return view("categories", [
             "titles" => "Post by Categories",
-            "active" => "categories",
+            // "active" => "categories",
             "categories" => Category::all(),
         ]);
     }
@@ -71,7 +83,7 @@ class postController extends Controller
     {
         return view("posts", [
             "titles" => "Post by Category : $category->name",
-            "active" => "posts",
+            // "active" => "posts",
             "seluruhPostingan" => $category->posts->load("author", "category"),
         ]);
     }

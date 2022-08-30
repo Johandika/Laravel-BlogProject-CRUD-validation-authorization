@@ -23,6 +23,20 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
+                <a class="nav-link {{ request ()->segment(1) == '' ? 'active' : '' }}" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ request ()->segment(1) == 'about' ? 'active' : '' }}" href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class=" nav-link {{ request ()->segment(1) == 'blog' ? 'active' : '' }}" href="/blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ request ()->segment(1) == 'categories' ? 'active' : '' }}" href="/categories">Categories</a>
+              </li>
+
+              {{-- OPSI LAIN DENGAN TERNARY OPERATOR --}}
+              {{-- <li class="nav-item">
                 <a class="nav-link {{ $active === 'home' ? 'active' : '' }}" href="/">Home</a>
               </li>
               <li class="nav-item">
@@ -33,7 +47,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ $active === 'categories' ? 'active' : '' }}" href="/categories">Categories</a>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </div>

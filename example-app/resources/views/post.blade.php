@@ -8,9 +8,9 @@
             <h1 class="mb-3">{{ $seluruhPostingan->title }}</h1>
             <p>
                 {{-- @dd($seluruhPostingan->author->username) --}}
-                By. <a href="/authors/{{ $seluruhPostingan->author->username }}"
+                By. <a href="/blog?author={{ $seluruhPostingan->author->username }}"
                     class="text-decoration-none">{{ $seluruhPostingan->author->name }}
-                </a> in <a href="/categories/{{ $seluruhPostingan->category->slug }}"
+                </a> in <a href="/blog?category={{ $seluruhPostingan->category->slug }}"
                     class="text-decoration-none">{{ $seluruhPostingan->category->name }}</a>
             </p>
 
