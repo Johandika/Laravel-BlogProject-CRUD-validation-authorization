@@ -1,0 +1,1 @@
+<h1>Welcome to Laravel Training</h1>

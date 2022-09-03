@@ -18,3 +18,19 @@ public function posts()
             "seluruhPostingan" => $posts->get(),
         ]);
     }
+
+OPSI LAIN DENGAN TERNARY OPERATOR
+{{-- <li class="nav-item">
+<a class="nav-link {{ $active === 'home' ? 'active' : '' }}" href="/">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link {{ $active === 'about' ? 'active' : '' }}" href="/about">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link {{ $active === 'posts' ? 'active' : '' }}" href="/blog">Blog</a>
+</li>
+<li class="nav-item">
+<a class="nav-link {{ $active === 'categories' ? 'active' : '' }}" href="/categories">Categories</a>
+</li>
+
+App/Providers/RouteServiceProviders  :  di sini tersimpan root ke Home agar yang sudah terauthenticate gabisa login lagi. 
