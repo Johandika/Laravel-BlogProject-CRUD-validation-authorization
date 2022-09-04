@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Post extends Model
 {
     use HasFactory;
+    
     protected $guarded = ["id"];
     protected $with = ["category", "author"];
 
@@ -57,4 +58,10 @@ class Post extends Model
         $posts = Post::all();
         return $posts->firstWhere("slug", $slug);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }

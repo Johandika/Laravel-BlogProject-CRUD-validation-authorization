@@ -34,3 +34,21 @@ OPSI LAIN DENGAN TERNARY OPERATOR
 </li>
 
 App/Providers/RouteServiceProviders  :  di sini tersimpan root ke Home agar yang sudah terauthenticate gabisa login lagi. 
+
+MENGGANTI ROUTE KEY NAME DARI NILAI DEFAULT MENJADI SLUG. INI BERGUNA DI CRUD SEROURCESS
+public function getRouteKeyName()
+{
+    return 'slug';
+}
+
+PENGGUNAAN * PADA ROUTE BERMAKNA SUB APAPUN SETELAHNYA AKAN MENGAKTIFKAN POSTS ITU SENDIRI
+{{ Request::is("dashboard/posts*") ? 'active' : '' }}
+
+PADA VIEW posts.create METHOD POST + ACTION MAKA SECARA OTOMATIS AKAN MENGARA KE METHOD STORE KALAU KITA PAKE RESOURCE
+<form method="post" action="/dashboard/posts">
+
+PACKAGE ELOQUENT SLUGGABLE
+Package ini berfungsi agar secara oromatis slug pada form memiliki snippet opsi sesuai slug yg kita miliki
+
+TRIX EDITOR UNTUK EDITING BODY ARTIKEL DENGAN MUDAH
+langsung saja cek githubnya dan lihat panduan pemakaiannya, tapi dalam latihan ini kita hanya akan menggunakan file trix.css dan trix.js di dalam folder dist. trix-core.js untuk mengedit si editor trixnya lebih lanjut
