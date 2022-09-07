@@ -34,11 +34,12 @@ class DatabaseSeeder extends Seeder
             "slug" => "personal",
         ]);
 
-        // User::create([
-        //     "name" => "Johandika Syahputra Lubis",
-        //     "email" => "johanelyosse@gmail.com",
-        //     "password" => bcrypt("12345"),
-        // ]);
+        User::create([
+            "name" => "Johandika Syahputra Lubis",
+            "username" => "Johandika",
+            "email" => "johanelyosse@gmail.com",
+            "password" => bcrypt("kmzway87ac"),
+        ]);
 
         // User::create([
         //     "name" => "Novia Marlina",

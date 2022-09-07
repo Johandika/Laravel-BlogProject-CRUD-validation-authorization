@@ -7,20 +7,14 @@
 <div class="row justify-content-center mb-3">
     <div class="col-md-6">
         <form action="/blog">
-            @if(request("category"))
-                <input type="hidden" name="category" value="{{ request("category") }}">
-            @endif
-            @if(request("author"))
-                <input type="hidden" name="author" value="{{ request("author") }}">
-            @endif
-            <div class="input-group mb-3">
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search.."
-                    name="search"
-                    value="{{ request("search") }}"
-                >
+                @if(request("category"))
+                    <input type="hidden" name="category" value="{{ request("category") }}">
+                @endif
+                @if(request("author"))
+                    <input type="hidden" name="author" value="{{ request("author") }}">
+                @endif
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search.." name="search" value="{{ request("search") }}">
                 <button class="btn btn-danger" type="submit">Search</button>
             </div>
         </form>
@@ -29,11 +23,17 @@
 
 @if ($seluruhPostingan->count())
 <div class="card mb-3">
-    <img
-        src="https://source.unsplash.com/1200x400?{{ $seluruhPostingan[0]->category->name }}-proffesional"
-        class="card-img-top"
-        alt="{{ $seluruhPostingan[0]->category->name }}"
-    />
+  
+            {{-- GAMBAR JIKA DIISI MANUAL --}}
+            @if ($seluruhPostingan[0]->image)
+              <div style="max-height: 400px; overflow: hidden;">
+                <img src="{{ asset("storage/" . $seluruhPostingan[0]->image) }}" alt="{{ $seluruhPostingan[0]->category->name }}" class="card-img-top">
+              </div>
+            @else
+              {{-- GAMBAR JIKA KOSONG --}}
+              <img src="https://source.unsplash.com/1200x400?{{ $seluruhPostingan[0]->category->name }}" alt="{{ $seluruhPostingan[0]->category->name }}" class="card-img-top">
+            @endif
+
     <div class="card-body text-center">
         <h5 class="card-title">
             <a
@@ -85,11 +85,17 @@
                         {{ $postingan->category->name }}</a
                     >
                 </div>
-                <img
-                    src="https://source.unsplash.com/500x400?{{ $postingan->category->name }}"
-                    class="card-img-top"
-                    alt="{{ $postingan->category->name }}"
-                />
+                
+                {{-- GAMBAR JIKA DIISI MANUAL --}}
+                @if ($postingan->image)
+                <div style="max-height: 400px; overflow: hidden;">
+                  <img src="{{ asset("storage/" . $postingan->image) }}" alt="{{ $postingan->category->name }}" class="card-img-top">
+                </div>
+                @else
+                {{-- GAMBAR JIKA KOSONG --}}
+                <img src="https://source.unsplash.com/500x400?{{ $postingan->category->name }}" class="card-img-top" alt="{{ $postingan->category->name }}">
+                @endif
+
                 <div class="card-body">
                     <h5 class="card-title">{{ $postingan->title }}</h5>
                     <p>

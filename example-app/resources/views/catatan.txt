@@ -52,3 +52,21 @@ Package ini berfungsi agar secara oromatis slug pada form memiliki snippet opsi 
 
 TRIX EDITOR UNTUK EDITING BODY ARTIKEL DENGAN MUDAH
 langsung saja cek githubnya dan lihat panduan pemakaiannya, tapi dalam latihan ini kita hanya akan menggunakan file trix.css dan trix.js di dalam folder dist. trix-core.js untuk mengedit si editor trixnya lebih lanjut
+
+CARA UNTUK MELIHAT ROUTE RESOURCE DEFAULT KITA
+php artisan route:list
+
+ENCTYPE
+Ketika kita ingin bekerja dengan file di dalam form kita, kita harus ubah dulu formnya kita harus menambahkan sebuah atribut pada form yang bernama enctype, karena kalau tidak form tersebut tidak bisa menangani file.
+enctype="multipart/form-data" , berfungsi untuk menangani 2 hal yaitu semua inputan dalam bentuk text akan diambil pakai request biasa lalu kalau ada file akan diambil menggunakan request file.
+
+FILESYSTEM_DRIVER=public
+Penggunaan FILESYSTEM_DRIVER=public di .env agar foleder penyimpanan default file yang kita upload tidak di config/filesystem.php melainkan di ubah jadi di folder public agar bisa di lihat seluruh pengunjung web. Untuk informasi lengkap lihat di documentation laravel dengan key "file storage" 
+
+PHP ARTISAN STORAGE:LINK
+Untuk menyambungkan publlicnya aplikasi kita dengan publiknya  storage. php artisan storage:link
+
+$table->string("image")->nullable();
+arti nullable pada migration data adalah bahwa datanya boleh kosong dalam hal ini data image boleh kosong dan akan diisi oleh unsplash sedangkan yang baru akan di isi manual.
+
+Untuk image memang tidak bisa menggunakan old{{ "value" }}
